@@ -19,20 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0iT-e3-WoP" customClass="ColoringView" customModule="DPColoringBook" customModuleProvider="target">
-                                <rect key="frame" x="146" y="0.0" width="375" height="375"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beast_1" translatesAutoresizingMaskIntoConstraints="NO" id="KD2-mG-lbq" customClass="ColoringImageView" customModule="DPColoringBook" customModuleProvider="target">
+                                <rect key="frame" x="145.5" y="0.0" width="375" height="375"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="0iT-e3-WoP" secondAttribute="height" multiplier="1:1" id="K0c-c9-Xox"/>
+                                    <constraint firstAttribute="width" secondItem="KD2-mG-lbq" secondAttribute="height" multiplier="1:1" id="tXq-3Y-erV"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0iT-e3-WoP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EzT-PB-fB3"/>
-                            <constraint firstItem="0iT-e3-WoP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GQc-gE-PPF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0iT-e3-WoP" secondAttribute="bottom" id="Ubs-iG-fpq"/>
-                            <constraint firstItem="0iT-e3-WoP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h48-MJ-I87"/>
+                            <constraint firstItem="KD2-mG-lbq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Sm-wD-nVl"/>
+                            <constraint firstItem="KD2-mG-lbq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ANj-aP-Chq"/>
+                            <constraint firstItem="KD2-mG-lbq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L6i-Yr-kr3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KD2-mG-lbq" secondAttribute="bottom" id="kUy-6C-5sJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -42,4 +41,7 @@
             <point key="canvasLocation" x="137" y="-39"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="beast_1" width="850" height="850"/>
+    </resources>
 </document>
