@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ColoringViewController.swift
 //  DPColoringBook
 //
 //  Created by 土老帽 on 2018/1/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ColoringViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
