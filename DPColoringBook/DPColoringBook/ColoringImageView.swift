@@ -8,44 +8,50 @@
 
 import UIKit
 
+
 class ColoringImageView: UIImageView {
 
     var startImage: UIImage?
     var newColor: UIColor = .red
-    var scaleNum: CGFloat?
-    var 
+    var scaleNum: CGFloat = 1.0
+
+    var cgimage: CGImage!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         isUserInteractionEnabled = true;
         // 多指
         isMultipleTouchEnabled = true
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let point = touches.first?.location(in: self)
         if touches.count == 1 {
             // 填充颜色
-            floodFillColor(fromPoint: point, withColor: newColor)
+            floodFillColor(startPoint: point, withColor: newColor)
         }
     }
     
-    func floodFillColor(fromPoint point: CGPoint?, withColor color: UIColor) {
+    func floodFillColor(startPoint point: CGPoint?, withColor color: UIColor) {
         
+        #if false
         // 颜色差异度
         var tolerance: Int = 10
         var antiAlias = false
         var colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
-        var imageRef = image.cgImage as? CGImageRef
-        var width: Int = CGImageGetWidth(image.cgImage)
-        var height: Int = CGImageGetHeight(image.cgImage)
-        // 装换坐标 实际坐标转换成像素坐标
-        var www: size_t = startPoint.x * scaleNum
-        var hhh: size_t = startPoint.y * scaleNum
-        startPoint = CGPoint(x: CGFloat(www), y: CGFloat(hhh))
-        var imageData = malloc(width * height * 4)
-        memset(imageData, 0, width * height * 4)
-        print("--------------\(imageData)")
+        guard let image = image else {
+            print("image is nil")
+            return
+        }
+        var cgimage = image.cgImage!
+        var width: Int = cgimage.width
+        var height: Int = cgimage.height
+        
+        guard let point = point else {
+            print("point is nil")
+            return
+        }
+        #endif
         
     }
     
