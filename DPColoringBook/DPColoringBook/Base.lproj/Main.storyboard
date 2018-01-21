@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beast_1" translatesAutoresizingMaskIntoConstraints="NO" id="KD2-mG-lbq" customClass="ColoringImageView" customModule="DPColoringBook" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="svg" translatesAutoresizingMaskIntoConstraints="NO" id="KD2-mG-lbq" customClass="ColoringImageView" customModule="DPColoringBook" customModuleProvider="target">
                                 <rect key="frame" x="145.5" y="0.0" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KD2-mG-lbq" secondAttribute="height" multiplier="1:1" id="tXq-3Y-erV"/>
@@ -42,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="beast_1" width="850" height="850"/>
+        <image name="svg" width="16" height="16"/>
     </resources>
 </document>
