@@ -14,7 +14,6 @@
 		352432EC201187F40008AF0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352432EA201187F40008AF0A /* LaunchScreen.storyboard */; };
 		352432F420118EFB0008AF0A /* ColoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352432F320118EFB0008AF0A /* ColoringView.swift */; };
 		352432F62011FD470008AF0A /* ColoringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352432F52011FD470008AF0A /* ColoringImageView.swift */; };
-		358191822016123E00A789B1 /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358191812016123E00A789B1 /* SVGKit.framework */; };
 		35819185201613B800A789B1 /* 8.svg in Resources */ = {isa = PBXBuildFile; fileRef = 35819184201613B800A789B1 /* 8.svg */; };
 		35D6E69420161E5A00279913 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D6E69320161E5A00279913 /* libxml2.tbd */; };
 		3778AB6D52675976FC985BE0 /* Pods_DPColoringBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4467FB625084E3247681112E /* Pods_DPColoringBook.framework */; };
@@ -30,7 +29,6 @@
 		352432ED201187F40008AF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		352432F320118EFB0008AF0A /* ColoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoringView.swift; sourceTree = "<group>"; };
 		352432F52011FD470008AF0A /* ColoringImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoringImageView.swift; sourceTree = "<group>"; };
-		358191812016123E00A789B1 /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVGKit.framework; sourceTree = "<group>"; };
 		35819184201613B800A789B1 /* 8.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 8.svg; sourceTree = "<group>"; };
 		35D6E69320161E5A00279913 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		4467FB625084E3247681112E /* Pods_DPColoringBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DPColoringBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +42,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D6E69420161E5A00279913 /* libxml2.tbd in Frameworks */,
-				358191822016123E00A789B1 /* SVGKit.framework in Frameworks */,
 				3778AB6D52675976FC985BE0 /* Pods_DPColoringBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,17 +88,8 @@
 				352432EA201187F40008AF0A /* LaunchScreen.storyboard */,
 				352432ED201187F40008AF0A /* Info.plist */,
 				358191832016139600A789B1 /* Resourse */,
-				35819180201611F600A789B1 /* Framesworks */,
 			);
 			path = DPColoringBook;
-			sourceTree = "<group>";
-		};
-		35819180201611F600A789B1 /* Framesworks */ = {
-			isa = PBXGroup;
-			children = (
-				358191812016123E00A789B1 /* SVGKit.framework */,
-			);
-			path = Framesworks;
 			sourceTree = "<group>";
 		};
 		358191832016139600A789B1 /* Resourse */ = {
