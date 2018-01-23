@@ -23,11 +23,12 @@ class ColoringViewController: UIViewController {
     }
 
     @IBAction func didTapClear(_ sender: UIButton) {
-        coloringImageView.clearCanvas()
+        let coloringView = view as! ColoringView
+        coloringView.clearCanvas()
     }
     
     @IBAction func didTapDraw(_ sender: UIButton) {
-        coloringImageView.drawMode = !coloringImageView.drawMode
+
     }
     
     @IBAction func didTapDone(_ sender: UIButton) {

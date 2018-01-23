@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftSVG
 
 class ColoringImageView: UIImageView {
 
@@ -36,13 +36,16 @@ class ColoringImageView: UIImageView {
     var selectedColor: Array<UInt8> = [255,0,0]
     
     override func awakeFromNib() {
-        super.awakeFromNib()
         isUserInteractionEnabled = true
         // 多指
         isMultipleTouchEnabled = true
         
         lineColor = .black
         lineWidth = 5.0
+        
+        
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

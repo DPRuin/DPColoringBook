@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,21 +14,15 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ColoringViewController" customModule="DPColoringBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="ColoringView" customModule="DPColoringBook" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="usagi" translatesAutoresizingMaskIntoConstraints="NO" id="KD2-mG-lbq" customClass="ColoringImageView" customModule="DPColoringBook" customModuleProvider="target">
-                                <rect key="frame" x="145.5" y="0.0" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="KD2-mG-lbq" secondAttribute="height" multiplier="1:1" id="tXq-3Y-erV"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aXe-38-sda">
-                                <rect key="frame" x="520.5" y="0.0" width="146.5" height="375"/>
+                                <rect key="frame" x="630" y="0.0" width="37" height="375"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wn-sm-D13">
-                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="118.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="37" height="118.5"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Clear"/>
                                         <connections>
@@ -37,7 +30,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7v-V0-bt8">
-                                        <rect key="frame" x="0.0" y="128.5" width="146.5" height="118"/>
+                                        <rect key="frame" x="0.0" y="128.5" width="37" height="118"/>
                                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <state key="normal" title="Draw"/>
@@ -46,7 +39,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAP-EE-FZM">
-                                        <rect key="frame" x="0.0" y="256.5" width="146.5" height="118.5"/>
+                                        <rect key="frame" x="0.0" y="256.5" width="37" height="118.5"/>
                                         <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
@@ -59,27 +52,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KD2-mG-lbq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Sm-wD-nVl"/>
-                            <constraint firstItem="KD2-mG-lbq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ANj-aP-Chq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aXe-38-sda" secondAttribute="bottom" id="Euc-NC-2W6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aXe-38-sda" secondAttribute="trailing" id="HXR-o5-lqL"/>
-                            <constraint firstItem="KD2-mG-lbq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L6i-Yr-kr3"/>
                             <constraint firstItem="aXe-38-sda" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tka-Ow-tIj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KD2-mG-lbq" secondAttribute="bottom" id="kUy-6C-5sJ"/>
-                            <constraint firstItem="aXe-38-sda" firstAttribute="leading" secondItem="KD2-mG-lbq" secondAttribute="trailing" id="uvv-Xh-xSj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="coloringImageView" destination="KD2-mG-lbq" id="j2l-6T-GJt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410" y="-164"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="usagi" width="286" height="372"/>
-    </resources>
 </document>
