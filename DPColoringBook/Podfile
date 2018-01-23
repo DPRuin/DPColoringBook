@@ -6,7 +6,7 @@ target 'DPColoringBook' do
   use_frameworks!
 
   # Pods for DPColoringBook
-  pod 'SwiftSVG', '~> 2.0'
+
   pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
 
 end

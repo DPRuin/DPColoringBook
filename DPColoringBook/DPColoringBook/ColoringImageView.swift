@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftSVG
 
 class ColoringImageView: UIImageView {
 
