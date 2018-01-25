@@ -21,8 +21,8 @@ extension CGContext {
 }
 
 class PDFColoringView: UIView {
-
-    var startPoint: CGPoint?
+    
+    var addlines = [CGPoint]()
     
     let pdfDocument: CGPDFDocument = {
         return CGPDFDocument(Bundle.main.url(forResource: "test", withExtension: "pdf")! as CFURL)!
@@ -30,29 +30,44 @@ class PDFColoringView: UIView {
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        startPoint = touches.first?.location(in: self)
+        
+        addlines = [CGPoint]()
+        let startPoint = touches.first?.location(in: self)
+        addlines.append(startPoint!)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let point = touches.first?.location(in: self)
-        
-        drawLine(fromPoint: startPoint!, toPoint: point!)
-        startPoint = point
+        addlines.append(point!)
+        setNeedsDisplay()
     }
     
-    func drawLine(fromPoint: CGPoint, toPoint: CGPoint) {
+    func drawLine(lines: [CGPoint]?) {
+        guard lines != nil else {
+            return
+        }
         let path = Bundle.main.path(forResource: "test", ofType: "pdf")!
         
         UIGraphicsBeginPDFContextToFile(path, frame, nil)
         UIGraphicsBeginPDFPageWithInfo(frame, nil)
         
         let context = UIGraphicsGetCurrentContext()!
+        
+        context.translateBy(x: 0.0, y: bounds.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        
         context.setStrokeColor(UIColor.red.cgColor)
         context.setLineWidth(10)
-        context.move(to: fromPoint)
-        context.addLine(to: toPoint)
         context.setLineCap(CGLineCap.round)
         context.flush()
+        
+        context.beginPath()
+        context.addArc(center: center, radius: 200, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        context.closePath()
+        context.clip()
+        
+        
+        context.addLines(between: lines!)
         context.strokePath()
         
         UIGraphicsEndPDFContext()
@@ -89,6 +104,8 @@ class PDFColoringView: UIView {
         // restore the graphics state for further manipulations!
         context.restoreGState()
         context.endPDFPage()
+        
+        drawLine(lines: addlines)
 
     }
     
