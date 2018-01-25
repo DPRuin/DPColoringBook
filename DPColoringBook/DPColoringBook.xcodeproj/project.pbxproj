@@ -18,6 +18,7 @@
 		35C61A2A20198B980093AAFB /* PDFColoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C61A2920198B980093AAFB /* PDFColoringView.swift */; };
 		35C61A2C20198E380093AAFB /* test.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 35C61A2B20198E370093AAFB /* test.pdf */; };
 		35D6E69420161E5A00279913 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D6E69320161E5A00279913 /* libxml2.tbd */; };
+		35F9B3D52019BD02001E79E3 /* PDFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9B3D42019BD02001E79E3 /* PDFImageView.swift */; };
 		3778AB6D52675976FC985BE0 /* Pods_DPColoringBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4467FB625084E3247681112E /* Pods_DPColoringBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		35C61A2920198B980093AAFB /* PDFColoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFColoringView.swift; sourceTree = "<group>"; };
 		35C61A2B20198E370093AAFB /* test.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = test.pdf; sourceTree = "<group>"; };
 		35D6E69320161E5A00279913 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		35F9B3D42019BD02001E79E3 /* PDFImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFImageView.swift; sourceTree = "<group>"; };
 		4467FB625084E3247681112E /* Pods_DPColoringBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DPColoringBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FFC74D4BE364783C16DA64F /* Pods-DPColoringBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPColoringBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DPColoringBook/Pods-DPColoringBook.debug.xcconfig"; sourceTree = "<group>"; };
 		970381125E397646D23A5559 /* Pods-DPColoringBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPColoringBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-DPColoringBook/Pods-DPColoringBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				352432E3201187F40008AF0A /* ColoringViewController.swift */,
 				352432F320118EFB0008AF0A /* ColoringView.swift */,
 				35C61A2920198B980093AAFB /* PDFColoringView.swift */,
+				35F9B3D42019BD02001E79E3 /* PDFImageView.swift */,
 				352432F52011FD470008AF0A /* ColoringImageView.swift */,
 				352432E5201187F40008AF0A /* Main.storyboard */,
 				352432E8201187F40008AF0A /* Assets.xcassets */,
@@ -251,6 +254,7 @@
 				352432F420118EFB0008AF0A /* ColoringView.swift in Sources */,
 				352432F62011FD470008AF0A /* ColoringImageView.swift in Sources */,
 				352432E4201187F40008AF0A /* ColoringViewController.swift in Sources */,
+				35F9B3D52019BD02001E79E3 /* PDFImageView.swift in Sources */,
 				35C61A2A20198B980093AAFB /* PDFColoringView.swift in Sources */,
 				352432E2201187F40008AF0A /* AppDelegate.swift in Sources */,
 			);
