@@ -58,6 +58,7 @@ class ColorPDFView: PDFView {
         
     }
     
+    // FIXME: CGPath路径获取不到
     func createClip() {
         let annotations = coloringPage.annotations
         for annot in annotations {
@@ -66,8 +67,7 @@ class ColorPDFView: PDFView {
             paths?.count
             if paths != nil {
                 for path in paths! {
-
-
+                    
                 }
             }
             
