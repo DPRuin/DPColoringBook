@@ -30,9 +30,7 @@ class ColorPDFView: PDFView {
             maxScaleFactor = scaleFactorForSizeToFit
             
             isUserInteractionEnabled = true
-            
-            page.displaysAnnotations = true
-            layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            layoutMargins = UIEdgeInsets(top: -100, left: -20, bottom: 0, right: 0)
         }
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panTouchMove(pan:)) )
@@ -86,6 +84,13 @@ class ColorPDFView: PDFView {
 //        context.scaleBy(x: 1.0, y: -1.0)
 //        context.rotate(by: CGFloat.pi / 4.0)
 
+        context.beginPath()
+        context.setStrokeColor(UIColor.blue.cgColor)
+        let path = UIBezierPath(arcCenter: CGPoint(x: 300, y: 300), radius: 200, startAngle: 0, endAngle: .pi * 2, clockwise: true)
+        context.addPath(path.cgPath)
+        context.closePath()
+        context.clip()
+        
         if addlines.count > 0 {
             context.setStrokeColor(UIColor.red.cgColor)
             context.setLineWidth(10)
@@ -96,25 +101,11 @@ class ColorPDFView: PDFView {
             context.strokePath()
         }
         
-        context.restoreGState()
-        UIGraphicsPopContext()
-        
 
         
-        
-        
-        UIGraphicsPushContext(context)
-        context.saveGState()
-        
-        context.beginPath()
-        // context.setStrokeColor(UIColor.blue.cgColor)
-        // let path = UIBezierPath(arcCenter: CGPoint(x: 100, y: 100), radius: 300, startAngle: 0, endAngle: .pi * 2, clockwise: true)
-        context.addArc(center: CGPoint(x: 100, y: 100), radius: 100, startAngle: 0, endAngle: .pi * 2, clockwise: true)
-        context.closePath()
-        context.clip()
-        
         context.restoreGState()
         UIGraphicsPopContext()
+        
 
     }
     
