@@ -21,6 +21,7 @@ class ColoringViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     @IBAction func didTapClear(_ sender: UIButton) {
         let coloringView = view as! ColoringView
