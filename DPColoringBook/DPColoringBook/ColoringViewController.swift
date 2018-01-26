@@ -22,7 +22,7 @@ class ColoringViewController: UIViewController {
     
 
     @IBAction func didTapClear(_ sender: UIButton) {
-        let coloringView = view as! ColoringView
+        let coloringView = view as! SVGColoringView
         coloringView.clearCanvas()
     }
     

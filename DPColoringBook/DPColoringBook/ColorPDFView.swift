@@ -18,7 +18,7 @@ class ColorPDFView: PDFView {
     override func awakeFromNib() {
 
         // Load our simple PDF document, retrieve the first page
-        if let documentURL = Bundle.main.url(forResource: "test", withExtension: "pdf"), let document = PDFDocument(url: documentURL), let page = document.page(at: 0) {
+        if let documentURL = Bundle.main.url(forResource: "hhh", withExtension: "pdf"), let document = PDFDocument(url: documentURL), let page = document.page(at: 0) {
             // Set our document to the view, center it, and set a background color
             self.document = document
             coloringPage = page
@@ -30,13 +30,14 @@ class ColorPDFView: PDFView {
             maxScaleFactor = scaleFactorForSizeToFit
             
             isUserInteractionEnabled = true
-            layoutMargins = UIEdgeInsets(top: -100, left: -20, bottom: 0, right: 0)
         }
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panTouchMove(pan:)) )
         addGestureRecognizer(pan)
         
         createClip()
+        
+        
     }
     
     @objc func panTouchMove(pan: UIPanGestureRecognizer) {
@@ -48,6 +49,7 @@ class ColorPDFView: PDFView {
             addlines = [CGPoint]()
             
             addlines.append(point)
+            
         case .changed:
             addlines.append(point)
             
@@ -60,11 +62,18 @@ class ColorPDFView: PDFView {
     
     // FIXME: CGPath路径获取不到
     func createClip() {
+        print("ccc", coloringPage.numberOfCharacters)
+        
+        
         let annotations = coloringPage.annotations
         for annot in annotations {
             let paths = annot.paths
+            
+            
+            print("eee", annot.quadrilateralPoints as? [CGPoint])
             print("hhh", paths?.count)
             paths?.count
+            
             if paths != nil {
                 for path in paths! {
                     
@@ -77,7 +86,7 @@ class ColorPDFView: PDFView {
     override func draw(_ page: PDFPage, to context: CGContext) {
         
         UIGraphicsPushContext(context)
-        context.saveGState()
+        // context.saveGState()
         // TODO: boounds的获取?
 //        let pageBounds = page.characterBounds(at: 0)
 //        context.translateBy(x: 0.0, y: pageBounds.size.height)
@@ -101,12 +110,8 @@ class ColorPDFView: PDFView {
             context.strokePath()
         }
         
-
-        
-        context.restoreGState()
+        // context.restoreGState()
         UIGraphicsPopContext()
-        
-
     }
     
 }

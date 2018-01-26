@@ -9,7 +9,7 @@
 import UIKit
 import SVGKit
 
-class ColoringView: UIView {
+class SVGColoringView: UIView {
 
     var drawingLayer: CALayer? {
         didSet {
@@ -29,6 +29,9 @@ class ColoringView: UIView {
     // 划线起点
     var startPoint = CGPoint.zero
     var path: UIBezierPath!
+    
+    var addlines = [CGPoint]()
+    
     
     
     override func awakeFromNib() {
@@ -51,6 +54,7 @@ class ColoringView: UIView {
             self.drawingLayer = svgImage?.caLayerTree
             print("hhhh---", self.drawingLayer?.sublayers?.count)
         }
+        
     }
     
     private func setup() {
@@ -98,6 +102,9 @@ class ColoringView: UIView {
             
         }
         
+        addlines = [CGPoint]()
+        addlines.append(startPoint)
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,31 +115,67 @@ class ColoringView: UIView {
         
         var endPoint = scaledPoint.applying(translateTransform)
         
+        addlines.append(endPoint)
+        setNeedsDisplay()
         
-        // 新建一个bezier对象
-        let bezierPath = UIBezierPath()
-        // 设置线两头样式
-        bezierPath.lineCapStyle = CGLineCap.round
-        // 设置起点、终点坐标
-        bezierPath.move(to: startPoint)
         
-        endPoint = self.layer.convert(endPoint, to: coloringLayer)
-        print("--",startPoint, "--", endPoint)
-        if coloringLayer.contains(endPoint) {
-            bezierPath.addLine(to: endPoint)
-        } else {
-            bezierPath.addLine(to: startPoint)
+//        // 新建一个bezier对象
+//        let bezierPath = UIBezierPath()
+//        // 设置线两头样式
+//        bezierPath.lineCapStyle = CGLineCap.round
+//        // 设置起点、终点坐标
+//        bezierPath.move(to: startPoint)
+//
+//        endPoint = self.layer.convert(endPoint, to: coloringLayer)
+//        print("--",startPoint, "--", endPoint)
+//        if coloringLayer.contains(endPoint) {
+//            bezierPath.addLine(to: endPoint)
+//        } else {
+//            bezierPath.addLine(to: startPoint)
+//        }
+//        startPoint = endPoint
+//        path = bezierPath
+//
+//        let shapeLayer = CAShapeLayer()
+//        shapeLayer.path = path.cgPath
+//        shapeLayer.strokeColor = UIColor.red.cgColor
+//        shapeLayer.lineWidth = 10
+//        // shapeLayer.fillColor = UIColor.cyan.cgColor
+//        coloringLayer.addSublayer(shapeLayer)
+//        self.setNeedsDisplay()
+    }
+    
+    
+    
+    func drawLine(lines: [CGPoint]?) {
+        guard let lines = lines, lines.count > 0 else {
+            return
         }
-        startPoint = endPoint
-        path = bezierPath
         
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        shapeLayer.lineWidth = 10
-        // shapeLayer.fillColor = UIColor.cyan.cgColor
-        coloringLayer.addSublayer(shapeLayer)
-        self.setNeedsDisplay()
+        UIGraphicsBeginImageContext(bounds.size)
+        let context = UIGraphicsGetCurrentContext()!
+        
+        context.translateBy(x: 0.0, y: bounds.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        
+        context.setStrokeColor(UIColor.red.cgColor)
+        context.setLineWidth(10)
+        context.setLineCap(CGLineCap.round)
+        context.flush()
+        
+        context.beginPath()
+        context.addArc(center: center, radius: 200, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        context.closePath()
+        context.clip()
+        
+        
+        context.addLines(between: lines)
+        context.strokePath()
+
+        
+        layer.contents = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
+        UIGraphicsEndImageContext()
+        
     }
     
     override func draw(_ rect: CGRect) {
@@ -143,6 +186,9 @@ class ColoringView: UIView {
             context.translateBy(x: translateForCTM.x, y: translateForCTM.y)
             layer.render(in: context)
         }
+        
+        drawLine(lines: addlines)
+        
     }
     
     func clearCanvas() {
