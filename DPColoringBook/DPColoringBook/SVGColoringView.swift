@@ -9,7 +9,7 @@
 import UIKit
 import SVGKit
 
-class SVGColoringView: UIView {
+class SVGColoringView: SVGKLayeredImageView {
 
     var drawingLayer: CALayer? {
         didSet {
@@ -17,7 +17,7 @@ class SVGColoringView: UIView {
         }
     }
     
-    var coloringLayer: CAShapeLayer!
+    var coloringLayer: CAShapeLayer?
     
     
     private var fillColor = UIColor.red
@@ -37,16 +37,7 @@ class SVGColoringView: UIView {
     override func awakeFromNib() {
         setup()
         
-
-//        let svgURL = Bundle.main.url(forResource: "8", withExtension: "svg")!
-//        _ = CALayer(SVGURL: svgURL) { (svgLayer) in
-//            // Set the fill color
-//            // svgLayer.fillColor = UIColor(red:0.94, green:0.37, blue:0.00, alpha:1.00).cgColor
-//            // Add the layer to self.view's sublayers
-//
-//            self.drawingLayer = svgLayer
-//            self.layer.addSublayer(svgLayer)
-//        }
+        // self.image = SVGKImage(named: "8.svg")
         
         let svgURL = Bundle.main.url(forResource: "8", withExtension: "svg")!
         let source = SVGKSourceURL.source(from: svgURL)
@@ -54,7 +45,6 @@ class SVGColoringView: UIView {
             self.drawingLayer = svgImage?.caLayerTree
             print("hhhh---", self.drawingLayer?.sublayers?.count)
         }
-        
     }
     
     private func setup() {
@@ -99,12 +89,11 @@ class SVGColoringView: UIView {
         if let layer = self.drawingLayer?.hitTest(point) as? CAShapeLayer {
             coloringLayer = layer
             startPoint = self.layer.convert(startPoint, to: coloringLayer)
+            coloringLayer?.strokeColor = UIColor.orange.cgColor
             
+            addlines = [CGPoint]()
+            addlines.append(startPoint)
         }
-        
-        addlines = [CGPoint]()
-        addlines.append(startPoint)
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -114,7 +103,7 @@ class SVGColoringView: UIView {
         let translateTransform = CGAffineTransform(translationX: -translateForCTM.x, y: -translateForCTM.y)
         
         var endPoint = scaledPoint.applying(translateTransform)
-        
+        endPoint = self.layer.convert(endPoint, to: coloringLayer)
         addlines.append(endPoint)
         setNeedsDisplay()
         
@@ -148,11 +137,11 @@ class SVGColoringView: UIView {
     
     
     func drawLine(lines: [CGPoint]?) {
-        guard let lines = lines, lines.count > 0 else {
+        guard let lines = lines, lines.count > 0, let coloringLayer = coloringLayer else {
             return
         }
         
-        UIGraphicsBeginImageContext(bounds.size)
+//        UIGraphicsBeginImageContext(bounds.size)
         let context = UIGraphicsGetCurrentContext()!
         
         context.translateBy(x: 0.0, y: bounds.size.height)
@@ -164,18 +153,49 @@ class SVGColoringView: UIView {
         context.flush()
         
         context.beginPath()
-        context.addArc(center: center, radius: 200, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        context.addPath(coloringLayer.path!)
+        // context.addArc(center: center, radius: 200, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
         context.closePath()
         context.clip()
         
         
         context.addLines(between: lines)
         context.strokePath()
+        
+//        coloringLayer.contents = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
+//        UIGraphicsEndImageContext()
+        
+    }
+    
+    override func draw(_ layer: CALayer, in ctx: CGContext) {
+        super.draw(layer, in: ctx)
+        print("------")
+        if let coloringLayer = coloringLayer, addlines.count > 0 {
+            UIGraphicsPushContext(ctx)
+            ctx.saveGState()
+            
+//            ctx.translateBy(x: 0.0, y: bounds.size.height)
+//            ctx.scaleBy(x: 1.0, y: -1.0)
+            
+            ctx.setStrokeColor(UIColor.red.cgColor)
+            ctx.setLineWidth(10)
+            ctx.setLineCap(CGLineCap.round)
+            ctx.flush()
+            
+            ctx.beginPath()
+            ctx.addPath(coloringLayer.path!)
+            // context.addArc(center: center, radius: 200, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
+            ctx.closePath()
+            ctx.clip()
+            
+            
+            ctx.addLines(between: addlines)
+            ctx.strokePath()
+            
+            ctx.restoreGState()
+            UIGraphicsPopContext()
+        }
 
-        
-        layer.contents = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
-        UIGraphicsEndImageContext()
-        
     }
     
     override func draw(_ rect: CGRect) {
@@ -187,13 +207,13 @@ class SVGColoringView: UIView {
             layer.render(in: context)
         }
         
-        drawLine(lines: addlines)
+        // drawLine(lines: addlines)
         
     }
     
     func clearCanvas() {
         path.removeAllPoints()
-        coloringLayer.sublayers = nil
+        // coloringLayer.sublayers = nil
         self.setNeedsDisplay()
     }
     
