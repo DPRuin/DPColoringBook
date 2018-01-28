@@ -77,7 +77,6 @@ class PDFColoringView: UIView {
     
     override func draw(_ rect: CGRect) {
 
-
         let context = UIGraphicsGetCurrentContext()!
         // Drawing code
         // PDF page drawing expects a Lower-Left coordinate system, so we flip the coordinate system

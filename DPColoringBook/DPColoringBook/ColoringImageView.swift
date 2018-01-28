@@ -42,9 +42,6 @@ class ColoringImageView: UIImageView {
         lineColor = .black
         lineWidth = 5.0
         
-        
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -22,6 +22,7 @@
 		35F9B3D72019CE3C001E79E3 /* ColorPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9B3D62019CE3C001E79E3 /* ColorPDFView.swift */; };
 		35F9B3D9201ACA47001E79E3 /* hhh.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 35F9B3D8201ACA46001E79E3 /* hhh.pdf */; };
 		35F9B3DB201AE0EB001E79E3 /* ColoringShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9B3DA201AE0EB001E79E3 /* ColoringShapeLayer.swift */; };
+		35F9B3DE201DB07E001E79E3 /* 82.svg in Resources */ = {isa = PBXBuildFile; fileRef = 35F9B3DD201DB07C001E79E3 /* 82.svg */; };
 		3778AB6D52675976FC985BE0 /* Pods_DPColoringBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4467FB625084E3247681112E /* Pods_DPColoringBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		35F9B3D62019CE3C001E79E3 /* ColorPDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPDFView.swift; sourceTree = "<group>"; };
 		35F9B3D8201ACA46001E79E3 /* hhh.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hhh.pdf; sourceTree = "<group>"; };
 		35F9B3DA201AE0EB001E79E3 /* ColoringShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoringShapeLayer.swift; sourceTree = "<group>"; };
+		35F9B3DD201DB07C001E79E3 /* 82.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 82.svg; sourceTree = "<group>"; };
 		4467FB625084E3247681112E /* Pods_DPColoringBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DPColoringBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FFC74D4BE364783C16DA64F /* Pods-DPColoringBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPColoringBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DPColoringBook/Pods-DPColoringBook.debug.xcconfig"; sourceTree = "<group>"; };
 		970381125E397646D23A5559 /* Pods-DPColoringBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPColoringBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-DPColoringBook/Pods-DPColoringBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		358191832016139600A789B1 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				35F9B3DD201DB07C001E79E3 /* 82.svg */,
 				35819184201613B800A789B1 /* 8.svg */,
 			);
 			path = Resourse;
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				352432EC201187F40008AF0A /* LaunchScreen.storyboard in Resources */,
+				35F9B3DE201DB07E001E79E3 /* 82.svg in Resources */,
 				352432E9201187F40008AF0A /* Assets.xcassets in Resources */,
 				352432E7201187F40008AF0A /* Main.storyboard in Resources */,
 				35F9B3D9201ACA47001E79E3 /* hhh.pdf in Resources */,
